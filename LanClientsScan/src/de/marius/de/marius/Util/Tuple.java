@@ -1,4 +1,4 @@
-package Util;
+package de.marius.Util;
 
 /**
  * A utility class to hold two values of any type.

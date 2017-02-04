@@ -1,4 +1,6 @@
-import Util.Tuple;
+package de.marius;
+
+import de.marius.Util.Tuple;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,9 +40,9 @@ public class NetworkSampler {
         recordReachableHosts(reachableClientsIdentities);
     }
 
-    public ScheduledFuture<?> sampleClientsScheduled() {
+    public ScheduledFuture<?> sampleClientsScheduled(TimeUnit timeUnit, int delay) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        return executor.scheduleWithFixedDelay(this::sampleClients, 0, 5, TimeUnit.SECONDS);
+        return executor.scheduleWithFixedDelay(this::sampleClients, 0, delay, timeUnit);
     }
 
     private List<Tuple<String, String>> getReachableClientIdentities(String subnet, int timeout) {
