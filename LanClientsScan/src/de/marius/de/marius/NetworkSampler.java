@@ -23,6 +23,11 @@ import java.util.stream.IntStream;
  */
 public class NetworkSampler {
 
+    public ScheduledFuture<?> sampleClientsScheduled(TimeUnit timeUnit, int delay) {
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        return executor.scheduleWithFixedDelay(this::sampleClients, 0, delay, timeUnit);
+    }
+
     public void sampleClients() {
         try {
             System.out.println(System.getProperty("line.separator"));
@@ -40,13 +45,8 @@ public class NetworkSampler {
         recordReachableHosts(reachableClientsIdentities);
     }
 
-    public ScheduledFuture<?> sampleClientsScheduled(TimeUnit timeUnit, int delay) {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        return executor.scheduleWithFixedDelay(this::sampleClients, 0, delay, timeUnit);
-    }
-
     private List<Tuple<String, String>> getReachableClientIdentities(String subnet, int timeout) {
-        return IntStream.rangeClosed(1, 255).
+        return IntStream.rangeClosed(1, 25).
                 parallel().
                 mapToObj(idx -> {
             String currentHostIp = subnet + "." + idx;
