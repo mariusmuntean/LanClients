@@ -1,3 +1,5 @@
+import Util.Tuple;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -123,7 +125,7 @@ public class Main {
                     .map(tupleFuture -> {
                         try {
                             Tuple<String, Boolean> result = tupleFuture.get();
-                            //System.out.println(result.getX() + " is reachable: " + result.getY());
+                            System.out.println(result.getX() + " is reachable: " + result.getY());
                             return result;
                         } catch (InterruptedException e) {
                             e.printStackTrace();
