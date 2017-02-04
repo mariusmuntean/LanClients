@@ -15,11 +15,11 @@ public class Main {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
         // Check if LanClientsScan already running
-//        boolean alreadyRunning = isAlreadyRunning();
-//        if (alreadyRunning) {
-//            System.out.println("Already started. Leaving now ...");
-//            return;
-//        }
+        boolean alreadyRunning = isAlreadyRunning();
+        if (alreadyRunning) {
+            System.out.println("Already started. Leaving now ...");
+            return;
+        }
 
 
         NetworkSampler networkSampler = new NetworkSampler();

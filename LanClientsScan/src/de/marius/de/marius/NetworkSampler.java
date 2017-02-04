@@ -46,7 +46,7 @@ public class NetworkSampler {
     }
 
     private List<Tuple<String, String>> getReachableClientIdentities(String subnet, int timeout) {
-        return IntStream.rangeClosed(1, 25).
+        return IntStream.rangeClosed(1, 255).
                 parallel().
                 mapToObj(idx -> {
             String currentHostIp = subnet + "." + idx;
