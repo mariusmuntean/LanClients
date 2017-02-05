@@ -1,11 +1,10 @@
 package de.marius;
 
+import de.marius.Util.OSHelper;
 import de.marius.Util.Tuple;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -49,12 +48,12 @@ public class NetworkSampler {
         return IntStream.rangeClosed(1, 255).
                 parallel().
                 mapToObj(idx -> {
-            String currentHostIp = subnet + "." + idx;
-            boolean isReachable = checkIfReachable(currentHostIp, timeout);
-            return new Tuple<>(currentHostIp, isReachable);
-        }).filter(Tuple::getY).
+                    String currentHostIp = subnet + "." + idx;
+                    boolean isReachable = checkIfReachable(currentHostIp, timeout);
+                    return new Tuple<>(currentHostIp, isReachable);
+                }).filter(Tuple::getY).
                 map(stringBooleanTuple -> {
-                    String currentHostMAC = getMACfromIp(stringBooleanTuple.getX());
+                    String currentHostMAC = OSHelper.getMacForIp(stringBooleanTuple.getX());
                     return new Tuple<>(stringBooleanTuple.getX(), currentHostMAC);
                 }).
                 collect(Collectors.toList());
@@ -112,42 +111,5 @@ public class NetworkSampler {
             e.printStackTrace();
             return false;
         }
-    }
-
-    private String getMACfromIp(String ip) {
-        try {
-            return run_program_with_catching_output("arp -a " + ip);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    private String run_program_with_catching_output(String param) throws IOException {
-        Process p = Runtime.getRuntime().exec(param);
-        BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String line;
-        while ((line = input.readLine()) != null) {
-            if (!line.trim().equals("")) {
-                // keep only the process name
-                //line = line.substring(1);
-                String mac = extractMacAddr(line);
-                if (!mac.isEmpty()) {
-                    return mac;
-                }
-            }
-
-        }
-        return null;
-    }
-
-    private String extractMacAddr(String str) {
-        String arr[] = str.split(" ");
-        for (String string : arr) {
-            if (string.trim().length() == 17) {
-                return string.trim().toUpperCase();
-            }
-        }
-        return "";
     }
 }
