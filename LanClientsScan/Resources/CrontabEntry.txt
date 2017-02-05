@@ -1,4 +1,5 @@
 # Run the Java lan scanner every hour at the 41'st minute, all day every day.
 # The application is smart enough to know if it is started multiple times and
 # immediately shuts down if another instance is already running
+@reboot sh /home/pi/LaunchLanClientsScan.sh
 41 * * * * sh /home/pi/LaunchLanClientsScan.sh
