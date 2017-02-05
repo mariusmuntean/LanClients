@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" filepath="$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClientsViewer/LanClientsViewer.iml" filepath="$PROJECT_DIR$/LanClientsViewer/LanClientsViewer.iml" />
     </modules>
   </component>
 </project>
