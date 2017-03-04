@@ -15,24 +15,21 @@ import java.util.stream.Collectors;
  */
 public class LanSampleService {
 
-    private static final String LAN_SAMPLES_DIR;
-
-    static {
-        LAN_SAMPLES_DIR = System.getProperty("os.name").toLowerCase().contains("win") ? "C:\\Users\\Mariu\\reachability" : "/home/pi/reachability";
-    }
-
     public List<LanSample> getAll() {
-        Path lanSamplesPath = Paths.get(LAN_SAMPLES_DIR);
+        Path lanSamplesPath = getReachabilityDirPath();
         if (!Files.exists(lanSamplesPath)) {
             return new ArrayList<>();
         }
 
         try {
-            return Files.list(lanSamplesPath).map(LanSample::new).collect(Collectors.toList());
+            return Files.list(lanSamplesPath).filter(path -> path.toAbsolutePath().toString().endsWith(".txt")).map(LanSample::new).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
         return new ArrayList<>();
     }
 
+    private Path getReachabilityDirPath() {
+        return Paths.get(System.getProperty("user.home")).resolve("reachability");
+    }
 }

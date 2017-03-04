@@ -120,7 +120,11 @@ public class OSHelper {
     private static String extractMacAddr(String str) {
         String arr[] = str.split(" ");
         for (String string : arr) {
-            if (string.trim().length() == 17) {
+
+            // The arp command on macOS returns MAC addresses of the form 0:f:54:13:e3:b1 so the length won't work
+            if (getCurrentOS() == OS.macOS && (string.length() - string.replace(":", "").length() == 5)) {
+                return string.trim().toUpperCase();
+            } else if (string.trim().length() == 17) {
                 return string.trim().toUpperCase();
             }
         }
