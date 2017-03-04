@@ -11,6 +11,14 @@ import java.io.InputStreamReader;
  */
 public class OSHelper {
 
+    public enum OS {
+        Windows,
+        Linux,
+        macOS,
+        Unix,
+        Unknown
+    }
+
     private static String osName;
     private static String cliName;
 
@@ -31,6 +39,22 @@ public class OSHelper {
         return osName != null && (osName.toLowerCase().trim().contains("mac") || osName.trim().toLowerCase().contains("darwin"));
     }
 
+    public static OS getCurrentOS() {
+        if (isWindows())
+            return OS.Windows;
+
+        if (isLinux())
+            return OS.Linux;
+
+        if (isMac())
+            return OS.macOS;
+
+        if (isUnix())
+            return OS.Unix;
+
+        return OS.Unknown;
+    }
+
     public static boolean isLinux() {
         return osName != null && (osName.toLowerCase().trim().contains("nux"));
     }
@@ -49,7 +73,7 @@ public class OSHelper {
     }
 
     public static String getMacForIp(String hostIp) {
-        String arpCommand = (isWindows() ? "arp -a " : "/usr/sbin/arp -a ") + hostIp;
+        String arpCommand = getOsSpecificArpCommand(hostIp);
         String arpOutput = null;
         try {
             arpOutput = executeCommandAndGetOutput(arpCommand);
@@ -68,6 +92,29 @@ public class OSHelper {
         }
 
         return "";
+    }
+
+    private static String getOsSpecificArpCommand(String hostIp) {
+        String arpCommand = "";
+        switch (getCurrentOS()) {
+            case Windows:
+                arpCommand = "arp -a " + hostIp;
+                break;
+            case Linux:
+                arpCommand = "/usr/sbin/arp -a " + hostIp;
+                break;
+            case macOS:
+                arpCommand = "arp " + hostIp;
+                break;
+            case Unix:
+                throw new UnsupportedOperationException("arp command isn't yet supported for Unix");
+//                break;
+            case Unknown:
+                throw new UnsupportedOperationException("arp command isn't supported for your OS");
+//                break;
+        }
+
+        return arpCommand;
     }
 
     private static String extractMacAddr(String str) {
