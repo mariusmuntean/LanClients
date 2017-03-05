@@ -18,23 +18,23 @@ public class LocationsHelper {
         return Paths.get(System.getProperty("user.home"));
     }
 
-    public static Path getLanClientsHomeDir() {
+    public static Path getLanClientsHomeDirectory() {
         return getUserHomeDirectory().resolve(LAN_CLIENTS_HOME_DIR);
     }
 
     public static Path getLanClientsConfigDirectory() {
-        return getLanClientsHomeDir().resolve(LAN_CLIENTS_CONFIG_DIR);
+        return getLanClientsHomeDirectory().resolve(LAN_CLIENTS_CONFIG_DIR);
     }
 
     public static Path getLanSamplesDirectory() {
-        return getLanClientsHomeDir().resolve(LAN_CLIENTS_LAN_SAMPLES_DIR);
+        return getLanClientsHomeDirectory().resolve(LAN_CLIENTS_LAN_SAMPLES_DIR);
     }
 
-    public static Path getWhitelistDirectory() {
-        return getLanClientsHomeDir().resolve(LAN_CLIENTS_WHITELIST);
+    public static Path getWhitelistFilePath() {
+        return getLanClientsHomeDirectory().resolve(LAN_CLIENTS_WHITELIST);
     }
 
-    public static Path getBlacklistDirectory() {
-        return getLanClientsHomeDir().resolve(LAN_CLIENTS_BLACKLIST);
+    public static Path getBlacklistFilePath() {
+        return getLanClientsHomeDirectory().resolve(LAN_CLIENTS_BLACKLIST);
     }
 }

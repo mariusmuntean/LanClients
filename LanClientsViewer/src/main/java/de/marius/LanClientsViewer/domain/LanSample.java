@@ -3,8 +3,9 @@ package de.marius.LanClientsViewer.domain;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -14,7 +15,7 @@ public class LanSample {
     private Path filePath;
     private Date sampleDate;
 
-    private HashMap<String, String> clients;
+    private List<LanClient> clients;
 
     public LanSample(Path path) {
         filePath = path;
@@ -37,16 +38,16 @@ public class LanSample {
             return;
         }
 
-        clients = new HashMap<>();
+        clients = new ArrayList<>();
         linesStream.skip(2).forEach(line -> {
             String[] currentLineData = line.split(" ");
 
-            clients.put(currentLineData[0], currentLineData[1]);
+            clients.add(new LanClient(currentLineData[1], currentLineData[0], ""));
         });
     }
 
     private void markSampleEmpty() {
-        clients = new HashMap<>();
+        clients = new ArrayList<>();
     }
 
     private void extractSampleDate() {
@@ -68,7 +69,7 @@ public class LanSample {
         return sampleDate;
     }
 
-    public HashMap<String, String> getClients() {
+    public List<LanClient> getClients() {
         if(clients == null){
             extractSampledClients();
         }
