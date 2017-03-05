@@ -1,4 +1,4 @@
-package de.marius.Util;
+package de.marius.LanClientsCore.domain;
 
 /**
  * A utility class to hold two values of any type.

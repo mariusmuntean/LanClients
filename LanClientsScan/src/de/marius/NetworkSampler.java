@@ -1,7 +1,8 @@
 package de.marius;
 
-import de.marius.Util.OSHelper;
-import de.marius.Util.Tuple;
+import de.marius.LanClientsCore.domain.Tuple;
+import de.marius.LanClientsCore.helper.LocationsHelper;
+import de.marius.LanClientsCore.helper.OSHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -92,9 +93,7 @@ public class NetworkSampler {
     }
 
     private String getCurrentRecordFilePath() {
-        String currentUsersHomeDir = System.getProperty("user.home");
-        String hostsReachabilityFolder = currentUsersHomeDir + File.separator + "reachability";
-        return hostsReachabilityFolder + File.separator + System.currentTimeMillis() + ".txt";
+        return LocationsHelper.getLanSamplesDirectory().resolve(System.currentTimeMillis() + ".txt").toAbsolutePath().toString();
     }
 
     private boolean checkIfReachable(String hostIp, int timeoutMillis) {

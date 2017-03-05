@@ -1,11 +1,11 @@
 package de.marius.LanClientsViewer.services;
 
+import de.marius.LanClientsCore.helper.LocationsHelper;
 import de.marius.LanClientsViewer.domain.LanSample;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class LanSampleService {
 
     public List<LanSample> getAll() {
-        Path lanSamplesPath = getReachabilityDirPath();
+        Path lanSamplesPath = LocationsHelper.getLanSamplesDirectory();
         if (!Files.exists(lanSamplesPath)) {
             return new ArrayList<>();
         }
@@ -27,9 +27,5 @@ public class LanSampleService {
             e.printStackTrace();
         }
         return new ArrayList<>();
-    }
-
-    private Path getReachabilityDirPath() {
-        return Paths.get(System.getProperty("user.home")).resolve("reachability");
     }
 }

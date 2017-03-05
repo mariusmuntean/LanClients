@@ -1,11 +1,11 @@
-package de.marius.Util;
+package de.marius.LanClientsCore.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * A helper to determine the current OS.
+ * A de.marius.LanClientsCore.helper to determine the current OS.
  * <p>
  * Created by Marius on 05.02.2017.
  */

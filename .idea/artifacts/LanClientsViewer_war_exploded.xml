@@ -5,6 +5,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="LanClientsViewer" />
+          <element id="module-output" name="LanClientsCore" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-server:8.0.0.beta1" />

@@ -1,6 +1,6 @@
 package de.marius;
 
-import de.marius.Util.OSHelper;
+import de.marius.LanClientsCore.helper.OSHelper;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
