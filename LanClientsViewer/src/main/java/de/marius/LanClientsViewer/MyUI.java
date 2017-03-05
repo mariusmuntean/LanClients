@@ -4,11 +4,13 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.HasValue;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import de.marius.LanClientsViewer.domain.LanSample;
 import de.marius.LanClientsViewer.services.LanSampleService;
+import de.marius.LanClientsViewer.ui.LanSampleTable;
 
 import java.util.List;
 
@@ -21,6 +23,8 @@ import java.util.List;
  */
 @Theme("mytheme")
 public class MyUI extends UI {
+
+    private LanSampleTable lanSampleTable;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -39,10 +43,19 @@ public class MyUI extends UI {
         List<LanSample> samples = new LanSampleService().getAll();
         lanSampleComboBox.setItems(samples);
         lanSampleComboBox.setWidthUndefined();
-
+        lanSampleComboBox.addValueChangeListener(getLanSampleSelectedListener());
         layout.addComponents(name, button, lanSampleComboBox);
 
+        lanSampleTable = new LanSampleTable();
+        layout.addComponent(lanSampleTable);
+
         setContent(layout);
+    }
+
+    private HasValue.ValueChangeListener<LanSample> getLanSampleSelectedListener() {
+        return valueChangeEvent -> {
+            lanSampleTable.showSample(valueChangeEvent.getValue());
+        };
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
