@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.stream.Stream;
 
 /**
- * Created by Marius on 05.02.2017.
+ * A single sampling of the network
  */
 public class LanSample {
     private Path filePath;

@@ -12,7 +12,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/domain/LanSample.class" afterPath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/domain/LanSample.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/services/LanSampleService.class" afterPath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/services/LanSampleService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java" afterPath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/domain/LanSample.java" afterPath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/domain/LanSample.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -53,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LanSample.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LanSample.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/domain/LanSample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+            <state relative-caret-position="75">
+              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="e#1158#1159#0" expanded="true" />
                 <element signature="e#1199#1200#0" expanded="true" />
@@ -98,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -1010,7 +1009,7 @@
       <workItem from="1486319317421" duration="5931000" />
       <workItem from="1488230245970" duration="257000" />
       <workItem from="1488231512121" duration="1763000" />
-      <workItem from="1488637425886" duration="8822000" />
+      <workItem from="1488637425886" duration="8900000" />
     </task>
     <task id="LOCAL-00001" summary="Added a Vaadin project to visualize the sampled data">
       <created>1486325186113</created>
@@ -1033,11 +1032,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488646966370</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactored the LanSample class to traverse the file line by line(moe memory efficient) and to only parse the file when needed">
+      <created>1488704679437</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1488704679437</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16773000" />
+    <option name="totallyTimeSpent" value="16851000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1149,7 +1155,8 @@
     <MESSAGE value="Added a Vaadin project to visualize the sampled data" />
     <MESSAGE value="Added support for the arp command on macOS" />
     <MESSAGE value="Fixed arp command for macOS and improved the detection of the &quot;reachability&quot; folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed arp command for macOS and improved the detection of the &quot;reachability&quot; folder" />
+    <MESSAGE value="Refactored the LanSample class to traverse the file line by line(moe memory efficient) and to only parse the file when needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the LanSample class to traverse the file line by line(moe memory efficient) and to only parse the file when needed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1241,24 +1248,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/domain/LanSample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        <state relative-caret-position="75">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
           <folding>
             <element signature="e#1158#1159#0" expanded="true" />
             <element signature="e#1199#1200#0" expanded="true" />
             <element signature="e#1945#1946#0" expanded="true" />
             <element signature="e#1989#1990#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
