@@ -30,21 +30,13 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
 
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue()
-                    + ", it works!"));
-        });
 
         ComboBox<LanSample> lanSampleComboBox = new ComboBox<>();
         List<LanSample> samples = new LanSampleService().getAll();
         lanSampleComboBox.setItems(samples);
-        lanSampleComboBox.setWidthUndefined();
+        lanSampleComboBox.setWidth(320.0f, Unit.PIXELS);
         lanSampleComboBox.addValueChangeListener(getLanSampleSelectedListener());
-        layout.addComponents(name, button, lanSampleComboBox);
+        layout.addComponent(lanSampleComboBox);
 
         lanSampleTable = new LanSampleTable();
         layout.addComponent(lanSampleTable);
@@ -56,6 +48,7 @@ public class MyUI extends UI {
         return valueChangeEvent -> {
             lanSampleTable.showSample(valueChangeEvent.getValue());
         };
+
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

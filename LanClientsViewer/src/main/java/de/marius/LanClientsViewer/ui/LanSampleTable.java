@@ -17,8 +17,8 @@ public class LanSampleTable extends Grid<Map.Entry<String, String>> {
 
 
     public LanSampleTable(){
-        this.addColumn(Map.Entry::getKey).setCaption("IP");
-        this.addColumn(Map.Entry::getValue).setCaption("MAC");
+        this.addColumn(Map.Entry::getKey).setCaption("IP Address");
+        this.addColumn(Map.Entry::getValue).setCaption("MAC Address");
     }
 
     public void showSample(LanSample lanSample){
