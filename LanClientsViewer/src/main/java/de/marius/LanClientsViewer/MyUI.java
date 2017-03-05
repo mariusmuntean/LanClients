@@ -10,6 +10,8 @@ import com.vaadin.ui.*;
 import de.marius.LanClientsViewer.domain.LanSample;
 import de.marius.LanClientsViewer.services.LanSampleService;
 
+import java.util.List;
+
 /**
  * This UI is the application entry point. A UI may either represent a browser window
  * (or tab) or some part of a html page where a Vaadin application is embedded.
@@ -34,7 +36,8 @@ public class MyUI extends UI {
         });
 
         ComboBox<LanSample> lanSampleComboBox = new ComboBox<>();
-        lanSampleComboBox.setItems(new LanSampleService().getAll());
+        List<LanSample> samples = new LanSampleService().getAll();
+        lanSampleComboBox.setItems(samples);
         lanSampleComboBox.setWidthUndefined();
 
         layout.addComponents(name, button, lanSampleComboBox);
