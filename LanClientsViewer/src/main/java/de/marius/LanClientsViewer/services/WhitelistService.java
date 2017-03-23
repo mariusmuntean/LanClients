@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -31,20 +32,28 @@ public class WhitelistService {
             Files.createDirectories(whitelistFilePath.getParent());
         }
 
-        Files.createFile(whitelistFilePath);
+        if (Files.notExists(whitelistFilePath)) {
+            Files.createFile(whitelistFilePath);
+        }
     }
 
 
     public List<LanClient> getWhitelistedClients() throws IOException {
 
-        if (whitelistedClients == null || whitelistedClients.entrySet().size() == 0) {
-            reloadClients();
-        }
+        initWhitelistIfNeeded();
 
         return whitelistedClients.values().stream().collect(Collectors.toList());
     }
 
-    public boolean isClientWhitelisted(LanClient lanClient) {
+    private void initWhitelistIfNeeded() throws IOException {
+        if (whitelistedClients == null || whitelistedClients.entrySet().size() == 0) {
+            reloadClients();
+        }
+    }
+
+    public boolean isClientWhitelisted(LanClient lanClient) throws IOException {
+        initWhitelistIfNeeded();
+
         return whitelistedClients.containsKey(lanClient.getMacAddress());
     }
 
@@ -75,12 +84,18 @@ public class WhitelistService {
     }
 
     private void reloadClients() throws IOException {
-        whitelistedClients.clear();
+        if (whitelistedClients != null) {
+            whitelistedClients.clear();
+        }
+        else {
+            whitelistedClients = new HashMap<>();
+        }
+
         try (Stream<String> linesStream = Files.lines(whitelistFilePath)) {
             linesStream.forEach(s -> {
                 try {
                     String[] whitelistedClientData = s.split(" ");
-                    whitelistedClients.put(whitelistedClientData[0], new LanClient(whitelistedClientData[0], "", whitelistedClientData[1]));
+                    whitelistedClients.put(whitelistedClientData[1], new LanClient(whitelistedClientData[1], whitelistedClientData[0], whitelistedClientData[1]));
                 } catch (Exception ex) {
                     LOG.warning("Exception while parsing whitelist entry: " + s + " EXCEPTION: " + ex);
                 }

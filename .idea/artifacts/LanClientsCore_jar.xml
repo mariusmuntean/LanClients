@@ -4,7 +4,7 @@
     <root id="archive" name="LanClientsCore.jar">
       <element id="module-output" name="LanClientsCore" />
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/LanClientsCore/src/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/LanClientsCore/src/main/java/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>

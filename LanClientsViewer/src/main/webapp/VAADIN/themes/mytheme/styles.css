@@ -316,6 +316,16 @@
  */
 
 @font-face {
+	font-family: "Vaadin-Icons";
+	src: url(../valo/fonts/vaadin-icons/Vaadin-Icons.eot);
+	src: url(../valo/fonts/vaadin-icons/Vaadin-Icons.eot?#iefix) format("embedded-opentype"), url(../valo/fonts/vaadin-icons/Vaadin-Icons.woff) format("woff"), url(../valo/fonts/vaadin-icons/Vaadin-Icons.ttf) format("truetype"), url(../valo/fonts/vaadin-icons/Vaadin-Icons.svg#icomoon) format("svg");
+}
+
+.Vaadin-Icons {
+	font-family: "Vaadin-Icons";
+}
+
+@font-face {
 	font-family: ThemeIcons;
 	font-weight: normal;
 	font-style: normal;
@@ -971,7 +981,7 @@
  */
 
 .v-vaadin-version:after {
-	content: "8.0.0.beta1";
+	content: "8.0.3";
 }
 
 .v-widget {
@@ -1744,6 +1754,10 @@ div.v-layout.v-horizontal.v-widget {
 	margin-top: 10px;
 }
 
+.mytheme .v-tooltip .v-tooltip-text pre {
+	margin: 0px;
+}
+
 .mytheme .v-tooltip .v-errormessage[aria-hidden="true"] + .v-tooltip-text {
 	margin-top: 0;
 }
@@ -2204,12 +2218,12 @@ div.v-layout.v-horizontal.v-widget {
 	background: transparent;
 }
 
-.mytheme .v-button-borderless:active {
+.mytheme .v-button-borderless:active:not(.v-disabled) {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
 }
 
-.mytheme .v-button-borderless:active:after {
+.mytheme .v-button-borderless:active:not(.v-disabled):after {
 	background: transparent;
 }
 
@@ -2229,12 +2243,12 @@ div.v-layout.v-horizontal.v-widget {
 	background: transparent;
 }
 
-.mytheme .v-button-borderless-colored:active {
+.mytheme .v-button-borderless-colored:active:not(.v-disabled) {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
 }
 
-.mytheme .v-button-borderless-colored:active:after {
+.mytheme .v-button-borderless-colored:active:not(.v-disabled):after {
 	background: transparent;
 }
 
@@ -2273,12 +2287,12 @@ div.v-layout.v-horizontal.v-widget {
 	background: transparent;
 }
 
-.mytheme .v-button-link:active {
+.mytheme .v-button-link:active:not(.v-disabled) {
 	opacity: 0.7;
 	filter: alpha(opacity=70) ;
 }
 
-.mytheme .v-button-link:active:after {
+.mytheme .v-button-link:active:not(.v-disabled):after {
 	background: transparent;
 }
 
@@ -3802,7 +3816,16 @@ div.v-layout.v-horizontal.v-widget {
 	border-radius: 0;
 }
 
+.mytheme .v-csslayout-v-component-group .v-widget ~ .v-widget.v-upload:not(:last-child) .v-button {
+	border-radius: 0;
+}
+
 .mytheme .v-csslayout-v-component-group .v-widget:last-child {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.mytheme .v-csslayout-v-component-group .v-widget.v-upload:last-child .v-button {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
@@ -3812,11 +3835,24 @@ div.v-layout.v-horizontal.v-widget {
 	border-bottom-right-radius: 0;
 }
 
+.mytheme .v-csslayout-v-component-group .v-widget.v-upload:first-child .v-button, .mytheme .v-csslayout-v-component-group .v-caption:first-child + .v-widget.v-upload .v-button {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
 .mytheme .v-csslayout-v-component-group .v-widget ~ .v-widget.first.first {
 	border-radius: 4px 0 0 4px;
 }
 
+.mytheme .v-csslayout-v-component-group .v-widget ~ .v-widget.first.first.v-upload .v-button {
+	border-radius: 4px 0 0 4px;
+}
+
 .mytheme .v-csslayout-v-component-group .v-widget ~ .v-widget.last.last {
+	border-radius: 0 4px 4px 0;
+}
+
+.mytheme .v-csslayout-v-component-group .v-widget ~ .v-widget.last.last.v-upload .v-button {
 	border-radius: 0 4px 4px 0;
 }
 
@@ -12397,4 +12433,12 @@ div.v-layout.v-horizontal.v-widget {
 	display: inline-block;
 	width: 19px;
 	overflow: hidden;
+}
+
+.mytheme .newdevice {
+	font-weight: bold !important;
+	text-align: right;
+	height: 80px;
+	background-color: #00ace0;
+	color: #00ace0;
 }

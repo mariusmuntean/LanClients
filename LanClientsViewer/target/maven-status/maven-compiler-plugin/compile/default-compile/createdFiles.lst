@@ -1,1 +1,7 @@
+de/marius/LanClientsViewer/domain/LanClient.class
+de/marius/LanClientsViewer/MyUI.class
+de/marius/LanClientsViewer/services/LanSampleService.class
 de/marius/LanClientsViewer/ui/LanSampleTable.class
+de/marius/LanClientsViewer/MyUI$MyUIServlet.class
+de/marius/LanClientsViewer/services/WhitelistService.class
+de/marius/LanClientsViewer/domain/LanSample.class

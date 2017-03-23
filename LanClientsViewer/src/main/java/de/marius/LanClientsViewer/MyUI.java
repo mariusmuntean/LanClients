@@ -12,6 +12,8 @@ import de.marius.LanClientsViewer.domain.LanSample;
 import de.marius.LanClientsViewer.services.LanSampleService;
 import de.marius.LanClientsViewer.ui.LanSampleTable;
 
+import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,13 +35,18 @@ public class MyUI extends UI {
 
         ComboBox<LanSample> lanSampleComboBox = new ComboBox<>();
         List<LanSample> samples = new LanSampleService().getAll();
-        lanSampleComboBox.setItems(samples);
-        lanSampleComboBox.setWidth(320.0f, Unit.PIXELS);
+        lanSampleComboBox.setItems(samples.stream().sorted(Comparator.comparing(LanSample::getSampleDate).reversed()));
+//        lanSampleComboBox.setWidth(320.0f, Unit.PIXELS);
         lanSampleComboBox.addValueChangeListener(getLanSampleSelectedListener());
         layout.addComponent(lanSampleComboBox);
 
-        lanSampleTable = new LanSampleTable();
-        layout.addComponent(lanSampleTable);
+        try {
+            lanSampleTable = new LanSampleTable();
+            lanSampleTable.addStyleName("dead");
+            layout.addComponent(lanSampleTable);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         setContent(layout);
     }
