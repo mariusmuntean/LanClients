@@ -65,6 +65,7 @@ public class WhitelistService {
         whitelistedClients.put(lanClient.getMacAddress(), lanClient);
 
         persistWhitelist();
+        reloadClients();
     }
 
     public void removeClientFromWhitelist(LanClient lanClient) throws IOException {
@@ -79,7 +80,8 @@ public class WhitelistService {
 
     private void persistWhitelist() throws IOException {
         Files.write(whitelistFilePath,
-                whitelistedClients.values().stream().map(lc -> lc.getMacAddress() + " " + lc.getName()).collect(Collectors.toList()),
+                // Entries should be MAC_<empty_space>_NAME, but for the moment they are MAC_<empty_space>_MAC
+                whitelistedClients.values().stream().map(lc -> lc.getMacAddress() + " " + lc.getMacAddress()).collect(Collectors.toList()),
                 StandardOpenOption.TRUNCATE_EXISTING);
     }
 
@@ -95,7 +97,7 @@ public class WhitelistService {
             linesStream.forEach(s -> {
                 try {
                     String[] whitelistedClientData = s.split(" ");
-                    whitelistedClients.put(whitelistedClientData[1], new LanClient(whitelistedClientData[1], whitelistedClientData[0], whitelistedClientData[1]));
+                    whitelistedClients.put(whitelistedClientData[0], new LanClient(whitelistedClientData[0], whitelistedClientData[1], whitelistedClientData[0]));
                 } catch (Exception ex) {
                     LOG.warning("Exception while parsing whitelist entry: " + s + " EXCEPTION: " + ex);
                 }

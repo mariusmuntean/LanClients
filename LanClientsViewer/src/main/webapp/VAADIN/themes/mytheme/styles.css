@@ -981,7 +981,7 @@
  */
 
 .v-vaadin-version:after {
-	content: "8.0.3";
+	content: "8.0.4";
 }
 
 .v-widget {
@@ -12439,6 +12439,6 @@ div.v-layout.v-horizontal.v-widget {
 	font-weight: bold !important;
 	text-align: right;
 	height: 80px;
-	background-color: #00ace0;
-	color: #00ace0;
+	background-color: #e01b51;
+	color: #e01b51;
 }

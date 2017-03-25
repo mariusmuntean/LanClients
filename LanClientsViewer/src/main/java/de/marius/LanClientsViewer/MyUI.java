@@ -36,14 +36,18 @@ public class MyUI extends UI {
         ComboBox<LanSample> lanSampleComboBox = new ComboBox<>();
         List<LanSample> samples = new LanSampleService().getAll();
         lanSampleComboBox.setItems(samples.stream().sorted(Comparator.comparing(LanSample::getSampleDate).reversed()));
-//        lanSampleComboBox.setWidth(320.0f, Unit.PIXELS);
+        lanSampleComboBox.setWidth(380.0f, Unit.PIXELS);
         lanSampleComboBox.addValueChangeListener(getLanSampleSelectedListener());
         layout.addComponent(lanSampleComboBox);
+        layout.setComponentAlignment(lanSampleComboBox, Alignment.MIDDLE_CENTER);
 
         try {
             lanSampleTable = new LanSampleTable();
+            lanSampleTable.setWidth(380.0f, Unit.PIXELS);
             lanSampleTable.addStyleName("dead");
             layout.addComponent(lanSampleTable);
+            layout.setComponentAlignment(lanSampleTable, Alignment.MIDDLE_CENTER);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
