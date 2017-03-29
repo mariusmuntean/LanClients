@@ -1,15 +1,11 @@
 package de.marius.LanClientsCore;
 
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 import de.marius.LanClientsCore.helper.LocationsHelper;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.*;
+import java.util.UUID;
 
 /**
  * Created for fooling around
@@ -26,8 +22,8 @@ public class Main {
 
         for (int i = 0; i < 10; i++) {
 
-            String name = "Jim Smith" + i;
-            Account account = new Account(name, "_secret");
+            String name = "Jim Smith" + UUID.randomUUID().toString();
+            Account account = new Account(name, UUID.randomUUID().toString());
 
             accountRepository.store(account);
         }

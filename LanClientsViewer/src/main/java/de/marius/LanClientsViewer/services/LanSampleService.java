@@ -1,7 +1,7 @@
 package de.marius.LanClientsViewer.services;
 
 import de.marius.LanClientsCore.helper.LocationsHelper;
-import de.marius.LanClientsViewer.domain.LanSample;
+import de.marius.LanClientsCore.domain.LanSample;
 
 import java.io.IOException;
 import java.nio.file.Files;

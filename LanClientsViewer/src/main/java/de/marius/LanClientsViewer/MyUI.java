@@ -8,7 +8,7 @@ import com.vaadin.data.HasValue;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
-import de.marius.LanClientsViewer.domain.LanSample;
+import de.marius.LanClientsCore.domain.LanSample;
 import de.marius.LanClientsViewer.services.LanSampleService;
 import de.marius.LanClientsViewer.ui.LanSampleTable;
 

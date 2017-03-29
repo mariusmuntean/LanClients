@@ -9,7 +9,7 @@ import com.vaadin.ui.components.grid.DetailsGenerator;
 import com.vaadin.ui.renderers.ButtonRenderer;
 import com.vaadin.ui.renderers.ClickableRenderer;
 import de.marius.LanClientsCore.domain.LanClient;
-import de.marius.LanClientsViewer.domain.LanSample;
+import de.marius.LanClientsCore.domain.LanSample;
 import de.marius.LanClientsViewer.services.WhitelistService;
 
 import java.io.IOException;

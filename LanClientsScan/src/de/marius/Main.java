@@ -3,6 +3,7 @@ package de.marius;
 import de.marius.LanClientsCore.helper.OSHelper;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +13,7 @@ public class Main {
     private static final String JAR_NAME = "LanClientsScan.jar";
 
 
-    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
+    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException, SQLException {
 
         // Check if LanClientsScan already running
         boolean alreadyRunning = isAlreadyRunning();

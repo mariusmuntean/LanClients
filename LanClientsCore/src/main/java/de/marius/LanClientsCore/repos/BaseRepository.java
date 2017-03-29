@@ -5,6 +5,7 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import de.marius.LanClientsCore.domain.LanClient;
 import de.marius.LanClientsCore.helper.LocationsHelper;
 
 import java.io.IOException;
@@ -38,7 +39,7 @@ public abstract class BaseRepository<T> {
     }
 
     public void close() throws IOException {
-       connectionSource.close();
+        connectionSource.close();
     }
 
     public void store(T storeMe) throws SQLException {
@@ -55,4 +56,7 @@ public abstract class BaseRepository<T> {
 
     public abstract Class<T> getRepositoryClass();
 
+    public T storeIfNotExists(T storeMe) throws SQLException {
+        return tDao.createIfNotExists(storeMe);
+    }
 }

@@ -1,4 +1,4 @@
-package de.marius.LanClientsViewer.domain;
+package de.marius.LanClientsCore.domain;
 
 import de.marius.LanClientsCore.domain.LanClient;
 

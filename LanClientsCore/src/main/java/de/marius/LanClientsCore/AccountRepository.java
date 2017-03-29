@@ -12,6 +12,7 @@ public class AccountRepository extends BaseRepository<Account> {
 
 
     public AccountRepository() throws IOException, SQLException {
+        super();
     }
 
     public Class<Account> getRepositoryClass() {

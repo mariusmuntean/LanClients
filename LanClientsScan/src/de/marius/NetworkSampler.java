@@ -1,8 +1,10 @@
 package de.marius;
 
+import de.marius.LanClientsCore.domain.LanClient;
 import de.marius.LanClientsCore.domain.Tuple;
 import de.marius.LanClientsCore.helper.LocationsHelper;
 import de.marius.LanClientsCore.helper.OSHelper;
+import de.marius.LanClientsCore.repos.LanClientRepository;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.*;
@@ -22,6 +25,11 @@ import java.util.stream.IntStream;
  * Created by Marius on 04.02.2017.
  */
 public class NetworkSampler {
+    LanClientRepository lanClientRepository;
+
+    public NetworkSampler() throws IOException, SQLException {
+        lanClientRepository = new LanClientRepository();
+    }
 
     public ScheduledFuture<?> sampleClientsScheduled(TimeUnit timeUnit, int delay) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
@@ -76,6 +84,9 @@ public class NetworkSampler {
         reachableHosts.forEach(stringStringTuple -> {
             stringBuilder.append(stringStringTuple.getX()).append(" ").append(stringStringTuple.getY());
             stringBuilder.append(System.getProperty("line.separator"));
+
+            addLanClientToKnownClients(stringStringTuple.getY());
+
         });
         try {
             String currentSampleFilePath = getCurrentRecordFilePath();
@@ -90,6 +101,14 @@ public class NetworkSampler {
         }
 
         System.out.println("At: " + new Date() + " found: " + reachableHosts.size() + " reachable hosts");
+    }
+
+    private void addLanClientToKnownClients(String lanClientMacAddress) {
+        try {
+            lanClientRepository.storeIfNotExists(new LanClient(lanClientMacAddress, "", ""));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private String getCurrentRecordFilePath() {
