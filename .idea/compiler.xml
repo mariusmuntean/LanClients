@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LanClientsCore" target="1.5" />
+      <module name="LanClientsCore" target="1.8" />
       <module name="LanClientsViewer" target="1.8" />
     </bytecodeTargetLevel>
   </component>

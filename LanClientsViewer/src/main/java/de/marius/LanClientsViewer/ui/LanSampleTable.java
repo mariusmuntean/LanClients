@@ -4,11 +4,11 @@ import com.vaadin.contextmenu.GridContextMenu;
 import com.vaadin.contextmenu.Menu;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.provider.ListDataProvider;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.MenuBar;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.StyleGenerator;
-import de.marius.LanClientsViewer.domain.LanClient;
+import com.vaadin.ui.*;
+import com.vaadin.ui.components.grid.DetailsGenerator;
+import com.vaadin.ui.renderers.ButtonRenderer;
+import com.vaadin.ui.renderers.ClickableRenderer;
+import de.marius.LanClientsCore.domain.LanClient;
 import de.marius.LanClientsViewer.domain.LanSample;
 import de.marius.LanClientsViewer.services.WhitelistService;
 
@@ -22,6 +22,8 @@ public class LanSampleTable extends Grid<LanClient> {
 
     private LanSample lanSample;
     private WhitelistService whitelistService;
+    private final Column<LanClient, String> nameColumn;
+    private final Column<LanSample, ButtonRenderer> expandColumn;
     private final Column<LanClient, String> ipColumn;
     private final Column<LanClient, String> macColumn;
 
@@ -31,9 +33,37 @@ public class LanSampleTable extends Grid<LanClient> {
         ipColumn.setCaption("IP Address");
         macColumn = this.addColumn(LanClient::getMacAddress);
         macColumn.setCaption("MAC Address");
+        nameColumn = this.addColumn(LanClient::getName);
+        nameColumn.setCaption("Name");
+        expandColumn = this.addColumn("Details", getDetailsButtonRenderer());
+
         setStyleGenerator(getRowStyleGenerator());
 
         addContextMenu();
+
+        this.setDetailsGenerator(getDetailsGenerator());
+    }
+
+    private ButtonRenderer getDetailsButtonRenderer() {
+        return new ButtonRenderer((ClickableRenderer.RendererClickEvent event) -> {
+            LanSampleTable.this.setDetailsVisible((LanClient) event.getItem(), true);
+        });
+    }
+
+
+    private DetailsGenerator<LanClient> getDetailsGenerator() {
+        return lanClient -> {
+            Label nameLbl = new Label("Client name: ");
+            TextField nameTxt = new TextField("Client name");
+            nameTxt.setValue(lanClient.getName());
+            Button update = new Button("Update");
+            update.addClickListener(event -> {
+                Notification.show("Updated name");
+            });
+
+            HorizontalLayout detailsLayout = new HorizontalLayout(nameLbl, nameTxt, update);
+            return detailsLayout;
+        };
     }
 
     private void addContextMenu() {
@@ -81,8 +111,7 @@ public class LanSampleTable extends Grid<LanClient> {
     private StyleGenerator<LanClient> getRowStyleGenerator() {
         return lanClient -> {
             try {
-                String style = whitelistService.isClientWhitelisted(lanClient) ? null : "newdevice";
-                return style;
+                return whitelistService.isClientWhitelisted(lanClient) ? null : "newdevice";
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
@@ -103,7 +132,7 @@ public class LanSampleTable extends Grid<LanClient> {
     }
 
     private DataProvider<LanClient, ?> getLanSampleClientsProvider() {
-        if(this.lanSample == null){
+        if (this.lanSample == null) {
             return new ListDataProvider<>(new ArrayList<>());
         }
         return new ListDataProvider<>(this.lanSample.getClients());

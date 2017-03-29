@@ -1,12 +1,13 @@
 package de.marius.LanClientsViewer.services;
 
 import de.marius.LanClientsCore.helper.LocationsHelper;
-import de.marius.LanClientsViewer.domain.LanClient;
+import de.marius.LanClientsCore.domain.LanClient;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,7 @@ public class WhitelistService {
 
     public WhitelistService() throws IOException {
         whitelistFilePath = LocationsHelper.getWhitelistFilePath();
+        System.err.println("Using "+whitelistFilePath+" as whitelist");
 
         if (!Files.exists(whitelistFilePath.getParent())) {
             Files.createDirectories(whitelistFilePath.getParent());
@@ -42,7 +44,7 @@ public class WhitelistService {
 
         initWhitelistIfNeeded();
 
-        return whitelistedClients.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(whitelistedClients.values());
     }
 
     private void initWhitelistIfNeeded() throws IOException {

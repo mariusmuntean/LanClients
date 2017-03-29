@@ -43,8 +43,7 @@ public class MyUI extends UI {
 
         try {
             lanSampleTable = new LanSampleTable();
-            lanSampleTable.setWidth(380.0f, Unit.PIXELS);
-            lanSampleTable.addStyleName("dead");
+            lanSampleTable.setWidth(480.0f, Unit.PIXELS);
             layout.addComponent(lanSampleTable);
             layout.setComponentAlignment(lanSampleTable, Alignment.MIDDLE_CENTER);
 

@@ -1,5 +1,7 @@
 package de.marius.LanClientsViewer.domain;
 
+import de.marius.LanClientsCore.domain.LanClient;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
