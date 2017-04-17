@@ -1,20 +1,18 @@
 package de.marius.LanClients;
 
-import javax.servlet.annotation.WebServlet;
-
-import com.vaadin.data.HasValue;
-import com.vaadin.data.provider.CallbackDataProvider;
-import com.vaadin.data.provider.ListDataProvider;
-import com.vaadin.ui.*;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.HasValue;
+import com.vaadin.data.provider.CallbackDataProvider;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.*;
 import de.marius.LanClients.backend.services.LanSampleService;
 import de.marius.LanClients.ui.LanSampleTable;
 import de.marius.LanClients.ui.SamplesCombo;
 import de.marius.LanClientsCore.domain.LanSample;
 
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.util.Comparator;
 
@@ -23,37 +21,6 @@ import java.util.Comparator;
  */
 @Theme("mytheme")
 public class MyUI extends UI {
-
-//    private CrudService<Person> service = new CrudService<>();
-//    private DataProvider<Person, String> dataProvider = new CallbackDataProvider<>(
-//                    query -> service.findAll().stream(),
-//                    query -> service.findAll().size());
-//
-//    @Override
-//    protected void init(VaadinRequest vaadinRequest) {
-//        final VerticalLayout layout = new VerticalLayout();
-//        final TextField name = new TextField();
-//        name.setCaption("Type your name here:");
-//
-//        final Button button = new Button("Click Me");
-//        button.addClickListener(e -> {
-//            service.save(new Person(name.getValue()));
-//            dataProvider.refreshAll();
-//        });
-//
-//        final Grid<Person> grid = new Grid<>();
-//        grid.addColumn(Person::getName).setCaption("Name");
-//        grid.setDataProvider(dataProvider);
-//        grid.setSizeFull();
-//
-//        // This is a component from the LanClients-addon module
-//        //layout.addComponent(new MyComponent());
-//        layout.addComponents(name, button, grid);
-//        layout.setSizeFull();
-//        layout.setExpandRatio(grid, 1.0f);
-//
-//        setContent(layout);
-//    }
 
     private LanSampleTable lanSampleTable;
     private static final String CURRENTVERSION = "0.1_2017-04-17_10";
@@ -73,7 +40,8 @@ public class MyUI extends UI {
 
         try {
             lanSampleTable = new LanSampleTable();
-            lanSampleTable.setWidth(480.0f, Unit.PIXELS);
+            lanSampleTable.setWidth(510.0f, Unit.PIXELS);
+            lanSampleTable.setHeightByRows(15.0f);
             mainContentLayout.addComponent(lanSampleTable);
             mainContentLayout.setComponentAlignment(lanSampleTable, Alignment.TOP_CENTER);
 

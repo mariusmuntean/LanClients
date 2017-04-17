@@ -4,6 +4,7 @@ import com.vaadin.contextmenu.GridContextMenu;
 import com.vaadin.contextmenu.Menu;
 import com.vaadin.data.provider.DataProvider;
 import com.vaadin.data.provider.ListDataProvider;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.*;
 import com.vaadin.ui.components.grid.DetailsGenerator;
 import com.vaadin.ui.renderers.ButtonRenderer;
@@ -11,8 +12,10 @@ import com.vaadin.ui.renderers.ClickableRenderer;
 import de.marius.LanClients.backend.services.WhitelistService;
 import de.marius.LanClientsCore.domain.LanClient;
 import de.marius.LanClientsCore.domain.LanSample;
+import de.marius.LanClientsCore.repos.LanClientRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -22,20 +25,27 @@ public class LanSampleTable extends Grid<LanClient> {
 
     private LanSample lanSample;
     private WhitelistService whitelistService;
-    private final Column<LanClient, String> nameColumn;
-//    private final Column<LanSample, ButtonRenderer> expandColumn;
-    private final Column<LanClient, String> ipColumn;
-    private final Column<LanClient, String> macColumn;
+    LanClientRepository lanClientRepository;
+    private final Column<LanSample, ButtonRenderer> expandColumn;
+//    private final Column<LanClient, String> nameColumn;
+//    private final Column<LanClient, String> ipColumn;
+//    private final Column<LanClient, String> macColumn;
 
     public LanSampleTable() throws IOException {
+        super(LanClient.class);
         whitelistService = new WhitelistService();
-        ipColumn = this.addColumn(LanClient::getIpAddress);
-        ipColumn.setCaption("IP Address");
-        macColumn = this.addColumn(LanClient::getMacAddress);
-        macColumn.setCaption("MAC Address");
-        nameColumn = this.addColumn(LanClient::getName);
-        nameColumn.setCaption("Name");
-//        expandColumn = this.addColumn("Details", getDetailsButtonRenderer());
+        try {
+            lanClientRepository = new LanClientRepository();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+//        ipColumn = this.addColumn(LanClient::getIpAddress);
+//        ipColumn.setCaption("IP Address");
+//        macColumn = this.addColumn(LanClient::getMacAddress);
+//        macColumn.setCaption("MAC Address");
+//        nameColumn = this.addColumn(LanClient::getName);
+//        nameColumn.setCaption("Name");
+        expandColumn = this.addColumn(lanClient -> VaadinIcons.EDIT, getDetailsButtonRenderer());
 
         setStyleGenerator(getRowStyleGenerator());
 
@@ -45,23 +55,33 @@ public class LanSampleTable extends Grid<LanClient> {
     }
 
     private ButtonRenderer getDetailsButtonRenderer() {
-        return new ButtonRenderer((ClickableRenderer.RendererClickEvent event) -> {
+        ButtonRenderer br =  new ButtonRenderer((ClickableRenderer.RendererClickEvent event) -> {
             LanSampleTable.this.setDetailsVisible((LanClient) event.getItem(), true);
         });
+        return br;
     }
 
 
     private DetailsGenerator<LanClient> getDetailsGenerator() {
         return lanClient -> {
             Label nameLbl = new Label("Client name: ");
-            TextField nameTxt = new TextField("Client name");
+            TextField nameTxt = new TextField();
             nameTxt.setValue(lanClient.getName());
             Button update = new Button("Update");
             update.addClickListener(event -> {
+                lanClient.setName(nameTxt.getValue());
+                try {
+                    lanClientRepository.storeIfNotExists(lanClient);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 Notification.show("Updated name");
             });
 
             HorizontalLayout detailsLayout = new HorizontalLayout(nameLbl, nameTxt, update);
+            detailsLayout.iterator().forEachRemaining(component -> {
+                detailsLayout.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
+            });
             return detailsLayout;
         };
     }
