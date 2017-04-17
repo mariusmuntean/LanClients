@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LanClients.iml" filepath="$PROJECT_DIR$/LanClients.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClients-addon/LanClients-addon.iml" filepath="$PROJECT_DIR$/LanClients-addon/LanClients-addon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClients-backend/LanClients-backend.iml" filepath="$PROJECT_DIR$/LanClients-backend/LanClients-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClients-ui/LanClients-ui.iml" filepath="$PROJECT_DIR$/LanClients-ui/LanClients-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClientsCore/LanClientsCore.iml" filepath="$PROJECT_DIR$/LanClientsCore/LanClientsCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" filepath="$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" />
     </modules>
   </component>
 </project>
