@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LanClientsCore/LanClientsCore.iml" filepath="$PROJECT_DIR$/LanClientsCore/LanClientsCore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" filepath="$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LanClientsViewer/LanClientsViewer.iml" filepath="$PROJECT_DIR$/LanClientsViewer/LanClientsViewer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LanClients.iml" filepath="$PROJECT_DIR$/LanClients.iml" />
     </modules>
   </component>
 </project>

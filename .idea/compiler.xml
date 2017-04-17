@@ -6,11 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LanClientsCore" />
-        <module name="LanClientsViewer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="LanClients" target="1.8" />
       <module name="LanClientsCore" target="1.8" />
       <module name="LanClientsViewer" target="1.8" />
     </bytecodeTargetLevel>

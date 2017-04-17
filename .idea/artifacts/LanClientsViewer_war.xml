@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="LanClientsViewer:war">
-    <output-path>$PROJECT_DIR$/LanClientsViewer/target</output-path>
-    <root id="archive" name="LanClientsViewer-0.1.war">
-      <element id="artifact" artifact-name="LanClientsViewer:war exploded" />
-    </root>
-  </artifact>
-</component>
