@@ -1,4 +1,4 @@
-package de.marius.LanClients;
+package de.marius.LanClients.ui;
 
 import com.vaadin.contextmenu.GridContextMenu;
 import com.vaadin.contextmenu.Menu;
@@ -86,7 +86,7 @@ public class LanSampleTable extends Grid<LanClient> {
         return (menuItem) -> {
             try {
                 whitelistService.removeClientFromWhitelist(lanClient);
-                Notification.show("Blacklisted " + lanClient.getMacAddress());
+                Notification.show("Blacklisted " + lanClient.getMacAddress(), Notification.Type.TRAY_NOTIFICATION);
             } catch (IOException e) {
                 e.printStackTrace();
                 Notification.show("Error blacklisting " + e.getMessage());
@@ -99,7 +99,7 @@ public class LanSampleTable extends Grid<LanClient> {
         return (menuItem) -> {
             try {
                 whitelistService.whitelistClient(lanClient);
-                Notification.show("Whitelisted " + lanClient.getMacAddress());
+                Notification.show("Whitelisted " + lanClient.getMacAddress(), Notification.Type.TRAY_NOTIFICATION);
             } catch (IOException e) {
                 e.printStackTrace();
                 Notification.show("Error whitelisting " + e.getMessage());

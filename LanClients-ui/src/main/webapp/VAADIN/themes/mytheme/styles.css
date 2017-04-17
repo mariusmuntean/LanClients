@@ -12501,3 +12501,11 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme .newdevice {
+	font-weight: bold !important;
+	text-align: right;
+	height: 80px;
+	background-color: #e01b51;
+	color: #e01b51;
+}
