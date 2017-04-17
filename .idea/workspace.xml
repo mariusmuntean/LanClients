@@ -6,89 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e80afca-6b16-41f3-8872-6a04c50b7938" name="Default" comment="Mapped the LanClient class to a table and extended the LanClientsScanner to persist the LanClients to that table">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/LanClientsCore_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/LanClientsViewer_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/LanClientsViewer_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_gentyref_gentyref_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_ormlite_ormlite_core_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_j256_ormlite_ormlite_jdbc_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_flute_flute_1_3_0_gg2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_slf4j_vaadin_slf4j_jdk14_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_client_compiled_8_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_context_menu_2_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_push_8_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_sass_compiler_0_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_server_8_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_shared_8_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_themes_8_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_10_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jsoup_jsoup_1_8_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_w3c_css_sac_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_16_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/gwt_user.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/Account.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/AccountRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/domain/LanClient.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/domain/LanSample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/repos/BaseRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/src/main/java/de/marius/LanClientsCore/repos/LanClientRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/LanClientsScan.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/Resources/CrontabEntry.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/Resources/LaunchLanClientsScan.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/src/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/src/de/marius/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsScan/src/de/marius/NetworkSampler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/LanClientsViewer.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/MyUI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/services/LanSampleService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/services/WhitelistService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/java/de/marius/LanClientsViewer/ui/LanSampleTable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/resources/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/webapp/VAADIN/themes/mytheme/addons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/webapp/VAADIN/themes/mytheme/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/webapp/VAADIN/themes/mytheme/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/src/main/webapp/VAADIN/themes/mytheme/styles.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/VAADIN/themes/mytheme/addons.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/VAADIN/themes/mytheme/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/VAADIN/themes/mytheme/mytheme.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/VAADIN/themes/mytheme/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/VAADIN/themes/mytheme/styles.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/classes/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/classes/de/marius/LanClientsViewer/MyUI$MyUIServlet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/classes/de/marius/LanClientsViewer/MyUI.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/classes/de/marius/LanClientsViewer/domain/LanSample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/classes/de/marius/LanClientsViewer/services/LanSampleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/flute-1.3.0.gg2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/gentyref-1.2.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/jsoup-1.8.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/sac-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/vaadin-sass-compiler-0.9.13.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/LanClientsViewer-0.1/WEB-INF/lib/vaadin-slf4j-jdk14-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/MyUI$MyUIServlet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/MyUI.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/domain/LanSample.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/classes/de/marius/LanClientsViewer/services/LanSampleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsViewer2/LanClientsViewer.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LanClientsScan/META-INF/MANIFEST.MF" afterPath="" />
+    <list default="true" id="6e80afca-6b16-41f3-8872-6a04c50b7938" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LanClientsCore/LanClientsCore.iml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/LanClientsViewer/target/" />
@@ -1994,7 +1913,7 @@
       <workItem from="1492290722537" duration="349000" />
       <workItem from="1492431222163" duration="70000" />
       <workItem from="1492431993280" duration="151000" />
-      <workItem from="1492432260477" duration="1514000" />
+      <workItem from="1492432260477" duration="1546000" />
     </task>
     <task id="LOCAL-00001" summary="Added a Vaadin project to visualize the sampled data">
       <created>1486325186113</created>
@@ -2087,11 +2006,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490820945899</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Temporarily deleted the project. I couldn' fix its configuration">
+      <created>1492433809942</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1492433809942</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91373000" />
+    <option name="totallyTimeSpent" value="91405000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2213,7 +2139,8 @@
     <MESSAGE value="Added context menu for lan clients table to white/black-list" />
     <MESSAGE value="Added a simple ORM(ORMLite) based on SQLite and a demo repository" />
     <MESSAGE value="Mapped the LanClient class to a table and extended the LanClientsScanner to persist the LanClients to that table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mapped the LanClient class to a table and extended the LanClientsScanner to persist the LanClients to that table" />
+    <MESSAGE value="Temporarily deleted the project. I couldn' fix its configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Temporarily deleted the project. I couldn' fix its configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
